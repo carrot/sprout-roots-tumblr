@@ -8,13 +8,17 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "mocha": "2.2.x",
-    "coffee-script": "1.9.1",
     "chai": "2.1.x",
     "chai-as-promised": "4.3.x",
-    "sprout": "0.4.x",
-    "rimraf": "2.3.x"
+    "coffee-script": "1.9.1",
+    "mocha": "2.2.x",
+    "rimraf": "2.3.x",
+    "roots": "^3.0.4",
+    "roots-util": "^0.1.0",
+    "sprout": "0.4.x"
   },
   "dependencies": {
+    "bluebird": "^2.9.25",
+    "ncp": "^2.0.0"
   }
 }

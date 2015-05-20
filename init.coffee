@@ -1,5 +1,7 @@
-path = require 'path'
-fs = require 'fs'
+Promise = require 'bluebird'
+path    = require 'path'
+fs      = require 'fs'
+ncp     = Promise.promisify(require('ncp').ncp)
 
 exports.configure = [
   {
@@ -10,6 +12,6 @@ exports.configure = [
   }
 ]
 
-exports.beforeRender = (utils, config) ->
-  target = path.join('views', 'index.jade')
-  utils.src.copy("themes/#{config.theme}/index.jade", target)
+exports.after = (utils, config) ->
+  tgt = path.join(utils._src, 'themes', config.theme)
+  ncp(tgt, utils._target)

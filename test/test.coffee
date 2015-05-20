@@ -1,24 +1,33 @@
 rimraf = require 'rimraf'
 path   = require 'path'
 fs     = require 'fs'
+Roots  = require 'roots'
 
 test_template_path = path.resolve(_path, '../../')
-test_path          = path.join(__dirname, 'tmp')
+test_path          = path.join(_path, 'site')
 tpl = 'test-sprout-roots-tumblr'
 opts =
   config: path.join(_path, 'locals.json')
 
-before ->
+before (done) ->
   sprout.add(tpl, test_template_path)
   .then -> rimraf.sync(test_path)
   .then -> sprout.init(tpl, test_path, opts)
+  .then -> h.project.install_dependencies('*', done)
 
 after ->
-  # sprout.remove(tpl)
-  # .then -> rimraf.sync(test_path)
+  sprout.remove(tpl)
 
-describe 'init', ->
-  it 'creates new project from template', (done) ->
-    tgt = path.join(test_path, 'views', 'index.jade')
+describe 'sprout', ->
+  it 'inits the project properly', (done) ->
+    tgt = path.join(test_path, 'index.jade')
+    fs.existsSync(tgt).should.be.ok
+    done()
+
+describe 'roots', ->
+  before -> h.project.compile(Roots, 'site')
+
+  it 'compiles the roots project, properly', (done) ->
+    tgt = path.join(test_path, 'public', 'index.html')
     fs.existsSync(tgt).should.be.ok
     done()
