@@ -1,18 +1,13 @@
 axis         = require 'axis'
 rupture      = require 'rupture'
 autoprefixer = require 'autoprefixer-stylus'
-js_pipeline  = require 'js-pipeline'
-css_pipeline = require 'css-pipeline'
-tumblr = require 'roots-tumblr'
+tumblr       = require 'roots-tumblr'
+inlineCss    = require 'roots-inline-css'
 
 module.exports =
   ignores: ['readme.md', '**/layout.*', '**/_*', '.gitignore', 'ship.*conf']
 
-  extensions: [
-    js_pipeline(files: 'assets/js/*.coffee'),
-    css_pipeline(files: 'assets/css/*.styl'),
-    tumblr()
-  ]
+  extensions: [tumblr(), inlineCss()]
 
   stylus:
     use: [axis(), rupture(), autoprefixer()]
