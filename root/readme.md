@@ -1,4 +1,4 @@
-# root
+# A Tumblr Theme
 
 a tumblr theme
 
@@ -11,7 +11,26 @@ a tumblr theme
 - ???
 - get money
 
-### Deploying
+### Usage
+- For local development:
+  - `roots watch` or `roots compile`
+- To compile a tumblr-ready version `roots compile -e production`
 
-- If you just want to compile the production build, run `roots compile -e production` and it will build to public.
-- To deploy your site with a single command, run `roots deploy -to XXX` with `XXX` being whichever [ship](https://github.com/carrot/ship#usage) deployer you want to use.
+### Best practices
+
+**Javascript:** it's easiest to inline your javascript so you don't have to host an external `.js` asset. To do this, try and keep all of your JS in 1 file and include it directly into your markup with jade.
+
+```jade
+//- assuming /main.coffee exists
+head
+  script: include:coffee-script ./main.coffee
+```
+
+**CSS:** [roots-inline-css](#) makes it extremely easy to locally use stylesheets but compile it inline. This, once again, prevents you from having to host the external `.css` asset.
+
+```jade
+//- assuming /style.styl exists
+head
+  link(rel='stylesheet', href='style.css')
+  //- :point_up: compiles all styles into a <style> block
+```
