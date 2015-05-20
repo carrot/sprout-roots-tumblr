@@ -1,6 +1,5 @@
 Promise = require 'bluebird'
 path    = require 'path'
-fs      = require 'fs'
 ncp     = Promise.promisify(require('ncp').ncp)
 
 exports.configure = [
