@@ -16,6 +16,13 @@ a tumblr theme
   - `roots watch` or `roots compile`
 - To compile a tumblr-ready version `roots compile -e production`
 
+### Project Info
+- The Basecamp - TBD
+- The Wireframes - TBD
+- **Staging URL -** TBD (username:password)
+- **Production URL -** TBD (username:password)
+
+
 ### Best practices
 
 **Javascript:** it's easiest to inline your javascript so you don't have to host an external `.js` asset. To do this, try and keep all of your JS in 1 file and include it directly into your markup with jade.
