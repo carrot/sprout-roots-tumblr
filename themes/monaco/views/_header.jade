@@ -1,0 +1,15 @@
+include ../node_modules/jumblr/lib/jumblr.jade
+
+article#intro.post
+  section#headshot(class='headshot{block:Description}-description{/block:Description} {block:ifNotDisplayBlogTitle}headshot-{select:Avatar}{/block:ifNotDisplayBlogTitle}')
+    #portrait(class='av-{select:Avatar} portrait{block:ifDisplayBlogTitle}-title{/block:ifDisplayBlogTitle}')
+      img(src='{PortraitURL-128}', height='128', width='128', alt='')
+    
+    +jumblr('ifDisplayBlogTitle')
+      #title
+        +jumblrVar('Title')
+
+  section#description(class="text {select:Description text alignment} {block:ifNotDisplayBlogTitle}description-headshot-{select:Avatar}{/block:ifNotDisplayBlogTitle}")
+    +jumblrVar('Description')
+  
+  include _nav

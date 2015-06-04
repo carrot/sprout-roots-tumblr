@@ -1,0 +1,222 @@
+include ../node_modules/jumblr/lib/jumblr.jade
+
++jumblr('Posts')
+  article(class='post post-post {block:PermalinkPage}post-permalink{/block:PermalinkPage} post-{PostType}', id='{PostID}')
+    section(class='post-white {block:PermalinkPage}post-white-permalink{/block:PermalinkPage} post-date{block:Date}-yes{/block:Date}', id='white-{PostID}')
+      +jumblr('Photo')
+        section.content.content-photo
+          +jumblrVar('LinkOpenTag')
+          img(src='{block:IndexPage}{PhotoURL-250}{/block:IndexPage}{block:PermalinkPage}{PhotoURL-HighRes}{/block:PermalinkPage}', alt='{PhotoAlt}', {block:indexpage}width='{PhotoWidth-250}', height='{PhotoHeight-250}{/block:IndexPage}/')
+          +jumblrVar('LinkCloseTag')
+        
+        +jumblr('Caption')
+          section.caption.caption-photo
+            +jumblrVar('Caption')
+      
+      
+      +jumblr('Panorama')  
+        section.content.content-panorama
+          +jumblrVar('LinkOpenTag')
+          img(src='{PhotoURL-Panorama}', alt='{PhotoAlt}')
+          +jumblrVar('LinkCloseTag')
+      
+        +jumblr('Caption')
+          section.caption.caption-panorama
+            +jumblrVar('Caption')
+      
+      
+      +jumblr('Photoset')
+          section.content.content-photoset
+            +jumblr('IndexPage')
+              +jumblrVar('PhotoSet-250')
+            +jumblr('PermalinkPage')
+              +jumblrVar('PhotoSet-700')
+          
+          +jumblr('Caption')
+            section.caption.caption-photoset
+              +jumblrVar('Caption')
+      
+      
+      +jumblr('Link')
+        section.content.content-link
+          a.link(href='{URL}', {target} target='_blank')
+            +jumblrVar('Name')
+            i.fa.fa-angle-right
+          
+          +jumblr('Host')
+            a.link-host(href='{URL}', {target} target='_blank')
+              +jumblrVar('Host')
+          
+        +jumblr('Description')
+          section.caption.caption-link
+            +jumblrVar('Description')
+      
+      
+      +jumblr('Audio')
+        section.content.content-audio
+          +jumblr('AlbumArt')
+            img.albumart(src='{AlbumArtURL}', alt='')
+          +jumblrVar('AudioPlayerWhite')
+        
+        +jumblr('Caption')
+          section.caption.caption-audio
+            +jumblrVar('Caption')
+      
+      
+      +jumblr('Video')
+        section.content.content-video
+          //- Also available in 500, 400, and 250. Use "VideoEmbed-X" to remove lightbox effect for directly uploaded videos.
+          +jumblr('IndexPage')
+            +jumblrVar('VideoEmbed-250')
+          +jumblr('PermalinkPage')
+            +jumblrVar('VideoEmbed-700')
+        
+        +jumblr('Caption')
+          section.caption.caption-video
+            +jumblrVar('Caption')
+      
+      
+      +jumblr('Text')
+        +jumblr('Title')
+          section.content.content-text
+            h2
+              +jumblrVar('Title')
+          
+        +jumblr('Body')
+          section.caption.caption-text
+            +jumblrVar('Body')
+          
+          
+      +jumblr('Quote')
+        section.content.content-quote
+          q(class='{Length}')
+            +jumblrVar('Quote')
+          
+        +jumblr('Source')
+          section.caption.caption-quote &mdash;
+            +jumblrVar('Source')
+      
+      
+      +jumblr('Chat')
+        +jumblr('Title')
+          section.content.content-chat
+            h2
+              +jumblrVar('Title')
+              
+          section.caption.caption-chat
+            table
+              +jumblr('Lines')
+                //- Alt variable returns "odd" or "even"
+                tr.chat_line(class='user{UserNumber} {Alt}')
+                  +jumblr('Label')
+                    td.label
+                      +jumblrVar('Label')
+                  td
+                    +jumblrVar('Line')
+                  
+                  
+      +jumblr('Answer')
+        section.content.content-question
+          section.ask-container
+            section.ask-asker
+              +jumblrVar('lang:Asker asked 2')
+              | :      
+            section.ask-question
+              +jumblrVar('Question')
+            
+        +jumblr('Answerer')       
+          section.ask-container
+            section.ask-asker
+              +jumblrVar('Answerer')
+              | :      
+            section.ask-question
+              +jumblrVar('Answer')
+      
+      section.caption.caption-question
+        +jumblrVar('Replies')
+
+
+    +jumblr('Date')
+      +jumblrStr('PermalinkPage', '-permalink')
+      aside.meta-container(class='meta-container'+ jumblrStr, id='meta-container-{PostID}')
+        .notecount(id='note-{PostID}')
+          +jumblrVar('NoteCount')
+        
+        .metadata(id='metadata-{PostID}{block:PermalinkPage}-permalink{/block:PermalinkPage}')
+          +jumblr('IndexPage')
+            span.zoom.meta-element.fa.fa-expand(id='zoom-{PostID}', title='{lang:Zoom}')
+          
+          +jumblr('PermalinkPage')
+            a.meta-element.fa.fa-external-link.fa-lg.open-permalink(href='{Permalink}', title='{lang:Permalink for this post}', target='_blank')
+          
+          +jumblr('IfFacebookShareButton')      
+            a.meta-element.fa.fa-facebook-square(href='https://www.facebook.com/sharer/sharer.php?u={URLEncodedPermalink}', target='_blank', title='{lang:Share this}')
+          
+          +jumblr('IfTwitterShareButton')
+            a.meta-element.fa.fa-twitter(href='https://twitter.com/intent/tweet?text={PostSummary}&url={URLEncodedShortURL}', target='_blank', title='{lang:Share this}')
+          
+          +jumblr('ifPinterestShareButton')
+            +jumblr('Photo')
+              a.meta-element.fa.fa-pinterest(href='//www.pinterest.com/pin/create/button/?url={URLEncodedPermalink}&media={PhotoURL-HighRes}&description={PostSummary}', target='_blank', title='{lang:Share this}')
+          
+            +jumblr('Panorama')
+              a.meta-element.fa.fa-pinterest(href='//www.pinterest.com/pin/create/button/?url={URLEncodedPermalink}&media={PhotoURL-HighRes}&description={PostSummary}', target='_blank', title='{lang:Share this}')
+          
+          | {LikeButton size="16" color="black"}
+          | {ReblogButton size="16" color="black"}
+      
+      
+    div(id="{block:PermalinkPage}info-{PostID}{/block:PermalinkPage}" class="{block:PermalinkPage}info-container{/block:PermalinkPage}")
+      aside.info(id='info-content-{PostID}', class='{select:Photo info} {block:HasTags}info-withtags-{select:Tag display}{/block:HasTags}')
+        .info-date
+          a(href='{Permalink}', target='_blank')
+            i.fa.fa-calendar-o
+            +jumblrVar('lang:Posted TimeAgo')
+              
+        +jumblr('ContentSource')
+          div
+            a(href='{SourceURL}', target='_blank')
+              i.fa.fa-globe
+              +jumblrVar('lang:Source')
+                | :
+              +jumblrVar('SourceTitle')
+              
+        +jumblr('RebloggedFrom')    
+          div: a(href='{ReblogParentURL}', target='_blank')
+            i.fa.fa-retweet
+            +jumblrVar('lang:Reblogged from ReblogParentName')
+          
+          +jumblr('Exif')
+            +jumblr('Camera')
+              .exif-camera
+                i.fa.fa-camera
+                +jumblrVar('Camera')
+            
+            +jumblr('FocalLength')
+              .exif-details
+                i.fa.fa-eye
+                +jumblrVar('FocalLength')
+            
+            +jumblr('Aperture')
+              .exif-details
+                i.fa.fa-picture-o
+                +jumblrVar('Aperture')
+            
+            +jumblr('Exposure')
+              .exif-details
+                i.fa.fa-bolt
+                +jumblrVar('Exposure')  
+          
+        
+        +jumblr('PermalinkPage')
+          +jumblr('HasTags')
+            aside#tags(class='tags-{select:Tag display}')
+              +jumblr('Tags')
+                a.tag(href='{TagURL}', title='{lang:Posts tagged Tag}')
+                  i.fa.fa-tag.fa-flip-horizontal
+                  +jumblrVar('Tag')
+            
+            
+        +jumblr('PostNotes')
+          aside#postnotes
+            +jumblrVar('PostNotes')

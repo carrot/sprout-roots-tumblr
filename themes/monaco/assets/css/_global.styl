@@ -1,0 +1,84 @@
+body
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+  font-size: 14px
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif
+  padding: 0
+  border-top: 10px solid whiteTrans(0.1)
+  color: gray
+  background: gradientTop /* Old browsers */
+
+  /* IE9 SVG, needs conditional override of 'filter' to 'none' */
+  background: url("data:image/svg+xml base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2U4YTZhZSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM0ZjU1OTgiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+")
+  background: -moz-linear-gradient(top, gradientTop 0%, gradientBot 100%) /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,gradientTop), color-stop(100%,gradientBot)) /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  gradientTop 0%, gradientBot 100%) /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  gradientTop 0%, gradientBot 100%) /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  gradientTop 0%, gradientBot 100%) /* IE10+ */
+  background: linear-gradient(to bottom,  gradientTop 0%, gradientBot 100%) /* W3C */
+  background-attachment: fixed
+
+a
+  text-decoration: underline
+  transition: 0.3s all
+  color: links
+
+  .tumblr_blog
+    color: light-gray1
+    text-decoration: none
+    border-bottom: 1px solid white
+    padding-bottom: 1px
+    font-weight: bold
+
+  &:hover
+    border-bottom: 1px solid gray
+
+p
+  line-height: 1.45
+  text-align: left
+
+p+p
+  margin-top: 5px
+
+h2
+  font-size: 22px
+  line-height: 1.2
+  color: gray
+  font-weight: bold
+
+h2 a
+  text-decoration: none
+
+  &:hover
+    text-decoration: none
+
+blockquote
+  margin: 8px 0 8px 5px
+  padding-left: 10px
+  border-left: solid 3px silver
+  line-height: 1.5
+
+  blockquote
+    margin-left: 0
+
+    blockquote blockquote
+      padding-left: 10px
+      border-left-width: 2px
+
+.lowercase
+  text-transform: lowercase
+
+.uppercase
+  text-transform: uppercase
+
+.align-center
+  text-align: center
+
+.align-left
+  text-align: left
+
+.align-justify
+  text-align: justify
+
+.align-right
+  text-align: right

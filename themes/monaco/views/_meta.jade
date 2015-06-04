@@ -1,0 +1,88 @@
+include ../node_modules/jumblr/lib/jumblr.jade
+
+meta(charset="utf-8")
+title
+  +jumblrVar('Title')
+  +jumblr('PermalinkPage')
+    +jumblr('PostSummary') |
+      +jumblrVar('PostSummary')
+  +jumblr('TagPage') |
+    +jumblrVar('lang:Posts tagged Tag')
+
++jumblrStr('Description', '{MetaDescription}')
+- jumblrStr1 = jumblrStr
++jumblrStr('PostSummary', '{PostSummary}')
++jumblrStrList({'IndexPage': jumblrStr1, 'PermalinkPage': jumblrStr})
+meta(name="description" content= jumblrStrList)
+meta(name='if:Infinite scrolling', content='1')
+meta(name='if:Display blog title', content='1')
+meta(name='if:Link to archive', content='1')
+meta(name='if:Facebook share button', content='0')
+meta(name='if:Twitter share button', content='0')
+meta(name='if:Pinterest share button', content='0')
+meta(name='if:Theme credit', content='1')
+meta(name='text:Google Analytics ID', content='')
+meta(name='text:Extra link 1 name', content='')
+meta(name='text:Extra link 1 URL', content='http://')
+meta(name='text:Extra link 2 name', content='')
+meta(name='text:Extra link 2 URL', content='http://')
+meta(name='text:Extra link 3 name', content='')
+meta(name='text:Extra link 3 URL', content='http://')
+meta(name='text:Extra link 4 name', content='')
+meta(name='text:Extra link 4 URL', content='http://')
+meta(name='text:Extra link 5 name', content='')
+meta(name='text:Extra link 5 URL', content='http://')
+meta(name='select:Avatar', content='circle', title='Circle')
+meta(name='select:Avatar', content='square', title='Square')
+meta(name='select:Avatar', content='none', title='None')
+meta(name='select:Note count formatting', content='comma', title='1,234')
+meta(name='select:Note count formatting', content='period', title='1.234')
+meta(name='select:Note count formatting', content='space', title='1 234')
+meta(name='select:Note count formatting', content='letters', title='1.2k')
+meta(name='select:Description text alignment', content='align-center', title='Center')
+meta(name='select:Description text alignment', content='align-left', title='Left')
+meta(name='select:Description text alignment', content='align-justify', title='Justify')
+meta(name='select:Description text alignment', content='align-right', title='Right')
+meta(name='select:Menu text alignment', content='align-left', title='Left')
+meta(name='select:Menu text alignment', content='align-center', title='Center')
+meta(name='select:Menu text alignment', content='align-right', title='Right')
+meta(name='select:Tag display', content='1icon', title='With label icons')
+meta(name='select:Tag display', content='2hashtag', title='With hashtags')
+meta(name='select:Tag display', content='3hide', title='Hide all tags')
+meta(name='select:Photo info', content='camera-detailed', title='Camera and EXIF details')
+meta(name='select:Photo info', content='camera-only', title='Camera only')
+meta(name='select:Photo info', content='camera-none', title='None')
+
+//- Favicons
+link(rel='shortcut icon', href='{Favicon}')
+link(rel='alternate', type='application/rss+xml', title='RSS', href='{RSS}')
+link(rel='apple-touch-icon', href='{PortraitURL-128}')
+
+//- Stylesheets
+link(href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css", rel="stylesheet" type="text/css")
+
+style
+  include:stylus ../assets/css/main.styl
+
+//- Load jQuery, Masonry, Modernizr, Infinite Scroll (if enabled) and Google Analytics (if enabled)
+
++jumblr('IfInfiniteScrolling')
+  script(src='http://static.tumblr.com/jhhfv1l/IImn4sw6y/jquery-masonry-modernizr-infinite.min.js')
++jumblr('IfNotInfiniteScrolling')
+  script(src='http://static.tumblr.com/jhhfv1l/5Lan4sw78/jquery-masonry-modernizr.min.js')
+
++jumblr('ifGoogleAnalyticsID')
+  script(type='text/javascript').
+    var _gaq = _gaq || [];
+    _gaq.push(["_setAccount", "{text:Google Analytics ID}"]);
+    _gaq.push(["_trackPageview"]);
+    (function() {
+    var ga = document.createElement("script"); ga.type = "text/javascript"; ga.async = true;
+    ga.src = ("https:" == document.location.protocol ? "https://ssl" : "http://www") + ".google-analytics.com/ga.js";
+    var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+//if IE
+  script(src='http://static.tumblr.com/jhhfv1l/f3Hmrwagx/html5.js')
+
+link(rel='stylesheet', href='css/main.css')
