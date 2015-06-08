@@ -11,7 +11,5 @@ module.exports =
   stylus:
     use: [axis(), rupture(), autoprefixer()]
 
-  'coffee-script':
-
   jade:
     pretty: true
