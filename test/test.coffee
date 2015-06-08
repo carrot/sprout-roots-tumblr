@@ -20,7 +20,12 @@ after ->
 
 describe 'sprout', ->
   it 'inits the project properly', (done) ->
-    tgt = path.join(test_path, 'index.jade')
+    if fs.existsSync(path.join(test_path, 'views'))
+      tgt = path.join(test_path, 'views/index.jade')
+
+    else
+      tgt = path.join(test_path, 'index.jade')
+
     fs.existsSync(tgt).should.be.ok
     done()
 

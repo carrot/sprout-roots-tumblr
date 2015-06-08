@@ -1,0 +1,39 @@
+#lightbox
+  position: fixed
+  background-color: blackTrans(0.8)
+  top: 0
+  bottom: 0
+  left: 0
+  right: 0
+  overflow-y: scroll
+  overflow-x: hidden
+  display: none
+  text-align: center
+  z-index: 1991
+
+  .post
+    margin-top: 50px
+    margin-bottom: 50px
+
+  .html_photoset
+    position: relative
+
+#lightbox-exit
+  color: white
+  font-size: 15px
+  position: absolute
+  top: -12px
+  right: -12px
+  cursor: pointer
+  background-color: gray
+  border-radius: 70px
+  width: 28px
+  height: 22px
+  padding-top: 6px
+  border: 5px solid white
+  transition: 0.5s all
+  z-index: 3001
+
+  &:hover
+    color: white
+    background-color: dark-gray

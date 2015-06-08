@@ -1,0 +1,498 @@
+.post
+  margin: 0 auto 20px auto
+  width: 270px
+  position: relative
+  text-align: center
+
+.post-white
+  background-color: white
+  padding: 10px
+  border-top-left-radius: 4px
+  border-top-right-radius: 4px
+
+// .post-date-yes
+
+.post-date
+  border-bottom-left-radius: 4px
+  border-bottom-right-radius: 4px
+
+.post-permalink
+  width: auto
+  margin-bottom: 40px
+  display: inline-block
+
+#lightbox .post-permalink
+  min-width: 520px
+  max-width: 1300px
+  margin: 0 50px
+
+.post-permalink.post-text, .post-permalink.post-quote, .post-permalink.post-answer
+  width: 700px
+
+.content
+  margin: 0
+  width: 100%
+  text-align: left
+
+.content-photo, .content-audio, .content-audio_art, .content-panorama
+  line-height: 0
+
+.content + .caption
+  padding-top: 10px
+
+.content-text + .caption
+  padding-top: 6px
+
+.caption
+  width: 100%
+  background-color: white
+  text-align: left
+
+.caption ul, .caption ol
+  margin: 15px 0 15px 28px
+
+.caption li+li
+  margin-top: 8px
+
+.image-zoom
+  cursor: pointer
+
+// quotes
+.content-quote q
+  font-weight: 500
+  quotes: '\201c' '\201d'
+  color: gray
+  text-rendering: optimizeLegibility
+
+  &:before
+    content: open-quote
+
+  &:after
+    content: close-quote
+
+  .short
+    font-size: 22px
+    line-height: 1.2
+
+  .medium
+    font-size: 20px
+    line-height: 1.3
+
+  .long
+    font-size: 15px
+    line-height: 1.4
+
+#lightbox q.short
+  font-size: 40px
+
+// audio
+.content-audio
+  text-align: left
+  width: 100%
+
+.tumblr_audio_player
+  width: 100%
+  height: 60px
+
+img.albumart
+  min-height: 250px
+
+// links
+.content-link
+  text-align: center
+  background-color: linkPosts
+  color:white
+  transition:0.5s all
+  border-radius:4px
+
+  a, a:hover
+    color: white
+    text-decoration: none
+
+  &:hover
+    color: white
+    opacity: 0.9
+
+.link
+  font-size: 25px
+  display: block
+  font-weight: bold
+  padding: 30px 10px
+
+.post-permalink .link
+  padding: 30px 30px
+
+.link-host
+  opacity: 0.8
+  padding: 0px 10px 30px 10px
+  margin-top: -20px
+  display: block
+
+.content-link i
+  opacity: 0.5
+  font-size: 22px
+  margin-left: 10px
+  vertical-align: -2px
+
+// questions
+.ask-container
+  background-color: dark-silver
+  padding: 8px 10px 9px 10px
+  line-height: 1.4
+  -webkit-border-radius: 4px
+  -moz-border-radius: 4px
+  -ms-border-radius: 4px
+  -o-border-radius: 4px
+  border-radius: 4px
+  position: relative
+  overflow: hidden
+
+.ask-container + .ask-container
+  margin-top: 10px
+
+.ask-asker
+  color: askerGray
+  margin-bottom: 8px
+  font-size: 13px
+  font-weight: bold
+
+  a
+    text-decoration: none
+    color: questionGray
+
+    &:hover
+      text-decoration: underline
+
+.ask-question
+  font-size: 14px
+  color: questionGray
+  font-weight: 500
+
+/* Padding to correct that reblogged answers with no caption still render the caption div */
+
+.content + .caption-question
+  padding-top: 0
+
+.content + .caption-question p:first-child
+  padding-top: 8px
+
+// chats
+.caption-chat
+  line-height: 1.3
+
+  td
+    padding-top: 5px
+
+  table
+    margin-top: -5px
+
+.label
+  font-weight: bold
+  padding-right: 15px
+  max-width: 120px
+
+// Post Controls & Sharing Options
+.meta-container, .meta-container-permalink
+  position: relative
+  bottom: 0
+  background-color: dark-silver
+  border-bottom-left-radius: 4px
+  border-bottom-right-radius: 4px
+  padding: 9px 10px 9px 0px
+  text-align: left
+  display: normal
+  color: light-gray
+  font-weight: bold
+  transition: 0.5s all
+
+  a
+    color: light-gray
+    text-decoration: none
+
+    &:hover
+      color: hover-gray
+      cursor: pointer
+
+.metadata
+  position: absolute
+  right: 10px
+  top: 50%
+  height: 16px
+  margin-top: -8px
+
+.reblog_button, .like_button
+  float: left
+  opacity: 0.2
+  margin-left: 5px
+  padding: 0 3px
+
+.like_button
+  margin-left: 6px
+
+.like_button:hover, .like_button:focus, .reblog_button:hover, .reblog_button:focus
+  opacity: 0.4
+
+.liked
+  opacity: 1
+
+  &:hover
+    opacity: 1
+
+.notecount
+  font-size: 14px
+  padding: 3px 10px
+  cursor: pointer
+  transition: 0.5s all
+  display: inline
+  line-height: 24px
+
+  &:hover
+    color: hover-gray
+
+#lightbox .notecount, .post-permalink .notecount
+  cursor: auto
+
+#lightbox .notecount:hover, .post-permalink .notecount:hover
+  color: light-gray
+
+.info-date a
+  cursor: default
+
+.info .info-date a:hover
+  background-color: whiteTrans(0)
+
+#lightbox .info-date a
+  cursor: pointer
+
+.source:before
+  font-size: 14px
+  vertical-align: -1px
+  padding: 0 0 0 4px
+
+.zoom:before
+  font-size: 16px
+  vertical-align: -2px
+  border-radius: 3px
+  color: light-gray
+  transition: 0.5s all
+  margin-left: 2px
+  margin-right: 1px
+
+.zoom:hover:before
+  color: hover-gray
+
+.reblogparent
+  font-size: 15px
+  vertical-align: -1px
+
+.meta-element + .meta-element
+  margin-left: 5px
+
+.meta-element
+  float: left
+  cursor: pointer
+
+.liked svg
+  fill: maroon
+
+.open-permalink
+  display: none
+  margin-right: 2px
+
+.open-permalink:before
+  font-size: 18px
+  line-height: 1
+
+#lightbox .open-permalink
+  display: inline
+
+.fa-facebook-square:before, .fa-twitter:before, .fa-pinterest:before
+  margin-left: 2px
+  font-size: 18px
+  line-height: 0.9
+
+// info & tags
+.info-container
+  width: 520px
+  display: none
+  margin: 0 auto
+
+.info, #tags
+  background-color: whiteTrans(0.1)
+  padding: 10px
+  margin-left: auto
+  margin-right: auto
+
+#lightbox .info, #lightbox #tags
+  display: block
+  background-color: blackTrans(0.5)
+
+.info i, #tags i
+  margin-right: 7px
+
+.indexpage .info
+  display: none
+
+.info
+  margin-top: 20px
+  color: white
+  line-height: 2
+  white-space: normal
+  font-weight: bold
+  transition: 0.5s all
+  border-top-left-radius: 4px
+  border-top-right-radius: 4px
+  border-bottom-left-radius: 4px
+  border-bottom-right-radius: 4px
+
+  a
+    color: white
+    background-color: whiteTrans(0)
+    text-decoration: none
+    padding: 3px 10px 5px 7px
+    border-radius: 4px
+    -webkit-padding-after: 5px
+
+    &:hover
+      background-color: whiteTrans(0.2)
+      text-decoration: none
+
+.info-withtags-1icon, .info-withtags-2hashtag
+  border-bottom-left-radius: 0px
+  border-bottom-right-radius: 0px
+
+#lightbox .info a:hover
+  background-color: whiteTrans(0)
+  text-decoration: underline
+
+.info div
+  display: inline-block
+
+.info div+div
+  margin-left: 20px
+
+.camera-only .exif-details
+  display: none
+
+.camera-none .exif-details, .camera-none .exif-camera
+  display: none
+
+.fa-camera:before, .fa-bolt:before, .fa-picture-o
+  vertical-align: -1px
+
+.fa-globe
+  vertical-align: -2px
+  font-size: 16px
+
+.fa-retweet
+  font-size: 15px
+  vertical-align: -1px
+
+// notes
+#postnotes
+  font-weight: bold
+  margin: 20px auto
+  color: whiteTrans(8)
+  width: 520px
+  text-align: left
+  width: 100%
+
+ol.notes
+  list-style: none
+
+  a
+    text-decoration: none
+    color: white
+
+    &:hover
+      text-decoration: underline
+
+ol.notes blockquote, .answer_content
+  padding: 4px 7px
+  margin: 8px 0 0 26px
+  line-height: 1.4
+  border-left: 5px solid whiteTrans(0.1)
+
+#lightbox ol.notes blockquote, #lightbox .answer_content
+  border-left: 5px solid answerGray
+
+.answer_content
+  display: block
+
+ol.notes blockquote a, .answer_content
+  color: whiteTrans(8)
+  font-weight: normal
+  text-decoration: none
+
+ol.notes blockquote a:hover, ol.notes blockquote a:focus
+  text-decoration: underline
+
+li.note
+  padding: 8px 10px 9px 10px
+  line-height: 1.2
+  background-color: whiteTrans(0.1)
+  margin-bottom: 1px
+
+  &:first-child
+    border-top-left-radius: 4px
+    border-top-right-radius: 4px
+
+  &:last-child
+    border-bottom-left-radius: 4px
+    border-bottom-right-radius: 4px
+
+  img.avatar
+    vertical-align: -3px
+    margin-right: 10px
+    -webkit-border-radius: 3px
+    -moz-border-radius: 3px
+    -ms-border-radius: 3px
+    -o-border-radius: 3px
+    border-radius: 3px
+
+#lightbox li.note
+  background-color: blackTrans(0.5)
+  margin-bottom: 1px
+
+#lightbox #postnotes
+  color: dark-silver
+
+#lightbox ol.notes a
+  color: white
+
+#lightbox ol.notes a:hover
+  text-decoration: underline
+
+li.more_notes_link_container
+  padding: 0
+  transition: 0.5s all
+
+li.more_notes_link_container:hover
+  background-color: whiteTrans(0.2)
+
+#lightbox li.more_notes_link_container:hover
+  background-color: blackTrans(0.7)
+  text-decoration: none
+
+a.more_notes_link, .notes_loading
+  padding: 20px 0
+  display: block
+
+a.more_notes_link:before
+  font-family: "FontAwesome"
+  content: "\f107"
+  margin-right: 15px
+
+a.more_notes_link:after
+  font-family: "FontAwesome"
+  content: "\f107"
+  margin-left: 15px
+
+ol.notes a.more_notes_link:hover
+  text-decoration: none
+
+#lightbox ol.notes a.more_notes_link:hover
+  text-decoration: none
+
+li.with_commentary, li.reply
+  background-color: whiteTrans(0.2)

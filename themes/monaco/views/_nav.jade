@@ -1,0 +1,52 @@
+include ../node_modules/jumblr/lib/jumblr.jade
+
+nav#menu
+  ul#menu-list.text(class='{select:Menu alignment}')
+    +jumblr('HasPages')
+      +jumblr('Pages')
+        li
+          a(href='{URL}')
+            +jumblrVar('Label')
+    
+    +jumblr('IfExtralink1name')         
+      li
+        a(href='{text:Extra link 1 URL}')
+          +jumblrVar('text:Extra link 1 name')
+    
+    +jumblr('IfExtralink2name')         
+      li
+        a(href='{text:Extra link 2 URL}')
+          +jumblrVar('text:Extra link 2 name')
+    
+    +jumblr('IfExtralink3name')         
+      li
+        a(href='{text:Extra link 3 URL}')
+          +jumblrVar('text:Extra link 3 name')      
+    
+    +jumblr('IfExtralink4name')         
+      li
+        a(href='{text:Extra link 4 URL}')
+          +jumblrVar('text:Extra link 4 name')
+    
+    +jumblr('IfExtralink5name')         
+      li
+        a(href='{text:Extra link 5 URL}')
+          +jumblrVar('text:Extra link 5 name')
+    
+    +jumblr('IfExtralink6name')         
+      li
+        a(href='{text:Extra link 6 URL}')
+          +jumblrVar('text:Extra link 6 name')
+    
+    +jumblr('AskEnabled')
+      li
+        a(href='/ask')
+          +jumblrVar('AskLabel')
+
+    +jumblr('SubmissionsEnabled')
+      li
+        a(href='/submit')
+          +jumblrVar('SubmitLabel')
+    +jumblr('ifLinkToArchive')
+      li
+        a(href='/archive') {lang:Archive}

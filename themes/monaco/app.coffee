@@ -1,15 +1,16 @@
 axis         = require 'axis'
 rupture      = require 'rupture'
 autoprefixer = require 'autoprefixer-stylus'
-inlineCss    = require 'roots-inline-css'
+tumblr       = require 'roots-tumblr'
 
 module.exports =
   ignores: ['readme.md', '**/layout.*', '**/_*', '.gitignore', 'ship.*conf']
 
-  extensions: [inlineCss()]
+  extensions: [tumblr()]
 
   stylus:
     use: [axis(), rupture(), autoprefixer()]
+    sourcemap: true
 
   jade:
     pretty: true

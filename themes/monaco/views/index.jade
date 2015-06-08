@@ -1,0 +1,37 @@
+include ../node_modules/jumblr/lib/jumblr.jade
+
+doctype
+html
+  head
+    include _meta
+    
+  +jumblrStr('IndexPage', 'indexpage')
+  body(class= jumblrStr)
+    
+    #loading
+      i#loading-spinner.fa.fa-refresh.fa-spin.fa-2x
+        
+    #content(class='{block:IndexPage}{block:IfInfiniteScrolling}margin-infinite{/block:IfInfiniteScrolling}{/block:IndexPage}')
+      +jumblr('TagPage')
+        #tag-page-summary
+          +jumblrVar('lang:Posts tagged Tag')
+      
+      
+      #posts(class='autopagerize_page_element posts{block:PermalinkPage}-permalink{/block:PermalinkPage}', role='main')
+        include _header
+        include _posts
+        include _footer
+        
+      +jumblr('Pagination')
+        nav#pagination(class='{block:ifinfinitescrolling}invisible{/block:ifinfinitescrolling}')
+          +jumblr('PreviousPage')
+            a#prevpage(href='{PreviousPage}')
+              +jumblrVar('lang:Previous page')
+          
+          +jumblr('NextPage')
+            a#nextpage(href='{NextPage}')
+              +jumblrVar('lang:Next page')
+    #lightbox
+      i#lightbox-spinner.fa.fa-refresh.fa-2x.fa-spin
+
+    script(type="text/javascript"): include ../assets/js/main.js
